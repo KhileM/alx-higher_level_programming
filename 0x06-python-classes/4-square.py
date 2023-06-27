@@ -1,63 +1,29 @@
 #!/usr/bin/python3
 
 class Square:
-    """
-    Represents a square.
+    """Represent a square."""
 
-    Attributes:
-        side_length (int): The side length of the square.
-    """
-
-    def __init__(self, side_length=0):
-        """
-        Initialize a new square.
+    def __init__(self, size=0):
+        """Initialize a new square.
 
         Args:
-            side_length (int): The side length of the square. Default is 0.
-
-        Raises:
-            TypeError: If side_length is not an integer.
-            ValueError: If side_length is less than 0.
+            size (int): The size of the new square.
         """
-        if not isinstance(side_length, int):
-            raise TypeError("Side length must be an integer")
-        elif side_length < 0:
-            raise ValueError("Side length must be >= 0")
-        self.__side_length = side_length
+        self.size = size
 
-    def get_side_length(self):
-        """
-        Get the side length of the square.
+    @property
+    def size(self):
+        """Get/set the current size of the square."""
+        return (self.__size)
 
-        Returns:
-            int: The side length of the square.
-        """
-        return self.__side_length
-
-    def set_side_length(self, value):
-        """
-        Set the side length of the square.
-
-        Args:
-            value (int): The new side length value.
-
-        Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is less than 0.
-        """
+    @size.setter
+    def size(self, value):
         if not isinstance(value, int):
-            raise TypeError("Side length must be an integer")
+            raise TypeError("size must be an integer")
         elif value < 0:
-            raise ValueError("Side length must be >= 0")
-        self.__side_length = value
+            raise ValueError("size must be >= 0")
+        self.__size = value
 
     def area(self):
-        """
-        Calculate the area of the square.
-
-        Returns:
-            int: The area of the square.
-        """
-        return self.__side_length ** 2
-
-    side_length = property(get_side_length, set_side_length)
+        """Return the current area of the square."""
+        return (self.__size * self.__size)
